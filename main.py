@@ -38,6 +38,11 @@ class DemoWindow(arcade.Window):
         view = HitBoxes()
         self.view_list.append(view)
 
+        from asteroids.asteroids_view import AsteroidsView
+        view = AsteroidsView()
+        view.start_new_game(1)
+        self.view_list.append(view)
+
 
 def main():
     """ Main function """

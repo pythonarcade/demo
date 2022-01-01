@@ -202,7 +202,7 @@ class LotsOfSprites(arcade.View):
 
     def on_update(self, delta_time):
         self.total_time += delta_time
-        if self.total_time > 2.0:
+        if self.total_time > 2.5:
 
             if not self.window.view_list:
                 self.window.create_views()
