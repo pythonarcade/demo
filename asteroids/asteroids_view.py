@@ -165,6 +165,8 @@ class AsteroidsView(BaseView):
                          font_size=35,
                          font_name="Arcade")
 
+        self.draw_line_one("Use Shaders for Glow Effects and Explosions", color=arcade.color.WHITE)
+
     def on_joybutton_press(self, joystick, button):
 
         # What player is this?

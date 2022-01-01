@@ -43,6 +43,10 @@ class DemoWindow(arcade.Window):
         view.start_new_game(1)
         self.view_list.append(view)
 
+        from shader_background.shader_background import ShaderBackground
+        view = ShaderBackground()
+        self.view_list.append(view)
+
 
 def main():
     """ Main function """
