@@ -1,10 +1,11 @@
 import arcade
+from base_view import BaseView
 
 
 SPRITE_SCALING = 1.0
 
 
-class RotateSprites(arcade.View):
+class RotateSprites(BaseView):
 
     def __init__(self):
         super().__init__()
@@ -30,13 +31,13 @@ class RotateSprites(arcade.View):
 
     def on_show(self):
         arcade.set_background_color(arcade.color.BLUE_YONDER)
+        self.total_time = 0.0
 
     def on_draw(self):
         """ Draw this view """
         arcade.start_render()
         self.sprite_list.draw()
-        arcade.draw_text("Rotate Sprites", self.window.width / 2, self.window.height * 2 / 3,
-                         arcade.color.BLACK, font_size=50, anchor_x="center")
+        self.draw_line_one("Rotate Sprites")
 
     def on_update(self, delta_time):
         self.total_time += delta_time

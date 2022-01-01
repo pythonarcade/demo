@@ -30,6 +30,14 @@ class DemoWindow(arcade.Window):
         view = ScaleSprites()
         self.view_list.append(view)
 
+        from lots_of_sprites.lots_of_sprites import LotsOfSprites
+        view = LotsOfSprites()
+        self.view_list.append(view)
+
+        from hit_box.hit_boxes import HitBoxes
+        view = HitBoxes()
+        self.view_list.append(view)
+
 
 def main():
     """ Main function """
