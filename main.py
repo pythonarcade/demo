@@ -38,6 +38,10 @@ class DemoWindow(arcade.Window):
         view = HitBoxes()
         self.view_list.append(view)
 
+        from ray_casting.ray_casting import RayCasting
+        view = RayCasting()
+        self.view_list.append(view)
+
         from asteroids.asteroids_view import AsteroidsView
         view = AsteroidsView()
         view.start_new_game(1)
@@ -51,6 +55,7 @@ class DemoWindow(arcade.Window):
 def main():
     """ Main function """
 
+    arcade.load_font("fonts/CabinSketch-Bold.ttf")
     window = DemoWindow()
     window.center_window()
     window.create_views()

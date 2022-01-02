@@ -79,7 +79,7 @@ def do_simulation_step(old_grid):
     return new_grid
 
 
-class LotsOfSprites(arcade.View):
+class LotsOfSprites(BaseView):
     """
     Main application class.
     """
@@ -197,12 +197,11 @@ class LotsOfSprites(arcade.View):
                          self.window.height - 20 + self.view_bottom,
                          arcade.color.WHITE, 16)
 
-        arcade.draw_text("Draw LOTS of Sprites", self.window.width / 2, self.window.height * 2 / 3,
-                         arcade.color.BLACK, font_size=50, anchor_x="center")
+        self.draw_line_one("Draw LOTS of Sprites")
 
     def on_update(self, delta_time):
         self.total_time += delta_time
-        if self.total_time > 2.5:
+        if self.total_time > 3.0:
 
             if not self.window.view_list:
                 self.window.create_views()

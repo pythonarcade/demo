@@ -1,10 +1,11 @@
 import arcade
+from base_view import BaseView
 
 
 SPRITE_SCALING = 1.0
 
 
-class ScaleSprites(arcade.View):
+class ScaleSprites(BaseView):
 
     def __init__(self):
         super().__init__()
@@ -35,13 +36,12 @@ class ScaleSprites(arcade.View):
         """ Draw this view """
         arcade.start_render()
         self.sprite_list.draw(pixelated=True)
-        arcade.draw_text("Scale Sprites", self.window.width / 2, self.window.height * 2 / 3,
-                         arcade.color.BLACK, font_size=50, anchor_x="center")
+        self.draw_line_one("Scale sprites")
 
     def on_update(self, delta_time):
         self.total_time += delta_time
         self.sprite_female.scale += 0.05
-        if self.total_time > 2.0:
+        if self.total_time > 1.8:
 
             if not self.window.view_list:
                 self.window.create_views()
