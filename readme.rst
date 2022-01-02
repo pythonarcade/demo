@@ -1,8 +1,8 @@
 Demo of the Arcade Library
 ==========================
 
-Done
-----
+Slides that are done
+--------------------
 
 * Intro screen
 * Sprites
@@ -10,13 +10,14 @@ Done
 * Scale sprites
 * Lots of sprites
 * Create and draw hit boxes
+* Mini-Map
 * Ray casting
 * Shaders for glow effects and explosions
 * Shaders for backgrounds
 * Compute Shader
 
-To Do
------
+Slides to do
+------------
 
 * Scrolling Screen
 * Fast collisions
@@ -24,6 +25,5 @@ To Do
 * GUI
 * Platformer Engine
 * Pymunk
-* Mini-Map
 * View/Screen support
 * Add music

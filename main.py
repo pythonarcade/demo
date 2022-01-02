@@ -38,6 +38,10 @@ class DemoWindow(arcade.Window):
         view = HitBoxes(3.0)
         self.view_list.append(view)
 
+        from minimap.minimap import Minimap
+        view = Minimap(5.0)
+        self.view_list.append(view)
+
         from ray_casting.ray_casting import RayCasting
         view = RayCasting(4.0)
         self.view_list.append(view)
