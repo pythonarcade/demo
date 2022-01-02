@@ -31,11 +31,15 @@ class DemoWindow(arcade.Window):
         self.view_list.append(view)
 
         from lots_of_sprites.lots_of_sprites import LotsOfSprites
-        view = LotsOfSprites(3.0)
+        view = LotsOfSprites(4.0)
         self.view_list.append(view)
 
         from hit_box.hit_boxes import HitBoxes
         view = HitBoxes(3.0)
+        self.view_list.append(view)
+
+        from camera.camera_view import CameraView
+        view = CameraView(3.0)
         self.view_list.append(view)
 
         from tiled_map.tiled_map import TiledMap

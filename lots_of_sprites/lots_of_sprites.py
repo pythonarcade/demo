@@ -198,6 +198,9 @@ class LotsOfSprites(BaseView):
                          arcade.color.WHITE, 16)
 
         self.draw_line_one("Draw LOTS of Sprites")
+        if self.total_time > 1.7:
+            self.draw_line_two("100,000+ stationary sprites")
+
 
     def on_update(self, delta_time):
         self.total_time += delta_time

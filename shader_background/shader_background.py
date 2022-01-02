@@ -21,20 +21,8 @@ class ShaderBackground(BaseView):
         # Textures for the enemy
         self.enemy_textures = None
 
-        # Set up the player info
-        self.player_sprite = None
-        self.score = 0
-        self.lives = 3
-        self.death_pause = 0
-
-        self.filter_on = True
-
-        # Don't show the mouse cursor
-        self.window.set_mouse_visible(False)
-
         arcade.set_background_color(arcade.color.BLACK)
 
-        self.time = 0
         file_name = "shader_background/side_city.glsl"
         file = open(file_name)
         shader_sourcecode = file.read()
