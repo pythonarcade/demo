@@ -7,9 +7,8 @@ SPRITE_SCALING = 1.0
 
 class DrawSprites(BaseView):
 
-    def __init__(self):
-        super().__init__()
-        self.total_time = 0.0
+    def __init__(self, time_on_screen):
+        super().__init__(time_on_screen)
 
         self.sprite_list = arcade.SpriteList()
 
@@ -53,7 +52,7 @@ class DrawSprites(BaseView):
 
     def on_update(self, delta_time):
         self.total_time += delta_time
-        if self.total_time > 2.0:
+        if self.total_time > self.time_on_screen:
 
             if not self.window.view_list:
                 self.window.create_views()

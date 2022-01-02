@@ -5,10 +5,6 @@ from base_view import BaseView
 class StartView(BaseView):
     """ View to show instructions """
 
-    def __init__(self):
-        super().__init__()
-        self.total_time = 0.0
-
     def on_show(self):
         arcade.set_background_color(arcade.color.BLUE_YONDER)
 
@@ -23,7 +19,7 @@ class StartView(BaseView):
             return
 
         self.total_time += delta_time
-        if self.total_time > 2.0:
+        if self.total_time > self.time_on_screen:
 
             if not self.window.view_list:
                 self.window.create_views()

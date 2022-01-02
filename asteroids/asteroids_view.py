@@ -19,8 +19,9 @@ from asteroids.glow_image_sprite import GlowImageSprite
 class AsteroidsView(BaseView):
     """ Main application class. """
 
-    def __init__(self):
-        super().__init__()
+    def __init__(self, time_on_screen):
+        super().__init__(time_on_screen)
+
         self.total_time = 0
         self.frame_count = 0
 
@@ -167,70 +168,6 @@ class AsteroidsView(BaseView):
 
         self.draw_line_one("Use Shaders for glow effects and explosions")
 
-    def on_joybutton_press(self, joystick, button):
-
-        # What player is this?
-        if joystick == self.window.joysticks[0]:
-            player_sprite = self.player_sprite_list[0]
-        else:
-            player_sprite = self.player_sprite_list[1]
-
-        if player_sprite.player_no == 1:
-            color = 255, 128, 128
-        else:
-            color = 128, 255, 128
-
-        if button == 0:
-            self.fire_circle(color, player_sprite, player_no=player_sprite.player_no)
-        elif button == 1:
-            self.fire_line(color, player_sprite, player_no=player_sprite.player_no)
-        elif button == 2:
-            bullet_sprite = GlowImageSprite(":resources:images/space_shooter/laserBlue01.png",
-                                            SCALE,
-                                            glowcolor=arcade.color.WHITE,
-                                            shadertoy=self.glowball_shadertoy,
-                                            player_no=player_sprite.player_no)
-            self.set_bullet_vector(bullet_sprite, 10, player_sprite)
-            arcade.play_sound(self.laser_sound)
-
-    def on_key_press(self, symbol, modifiers):
-        """ Called whenever a key is pressed. """
-        # Shoot if the player hit the space bar and we aren't respawning.
-        if symbol == arcade.key.LEFT:
-            self.player_sprite_list[0].change_angle = 3
-        elif symbol == arcade.key.RIGHT:
-            self.player_sprite_list[0].change_angle = -3
-        elif symbol == arcade.key.UP:
-            self.player_sprite_list[0].thrust = 0.15
-        elif symbol == arcade.key.DOWN:
-            self.player_sprite_list[0].thrust = -.2
-        elif symbol == arcade.key.KEY_1:
-            color = (255, 128, 128)
-            self.fire_circle(color, self.player_sprite_list[0], player_no=0)
-        elif symbol == arcade.key.KEY_2:
-            color = (128, 255, 128)
-            self.fire_circle(color, self.player_sprite_list[0], player_no=0)
-        elif symbol == arcade.key.KEY_3:
-            color = (128, 128, 255)
-            self.fire_circle(color, self.player_sprite_list[0], player_no=0)
-        elif symbol == arcade.key.KEY_4:
-            color = (255, 128, 255)
-            self.fire_circle(color, self.player_sprite_list[0], player_no=0)
-        elif symbol == arcade.key.KEY_5:
-            color = (255, 255, 255)
-            self.fire_line(color, self.player_sprite_list[0], player_no=0)
-        elif symbol == arcade.key.KEY_6:
-            color = (64, 255, 64)
-            self.fire_line(color, self.player_sprite_list[0], player_no=0)
-        elif symbol == arcade.key.KEY_7:
-            bullet_sprite = GlowImageSprite(":resources:images/space_shooter/laserBlue01.png",
-                                            SCALE,
-                                            glowcolor=arcade.color.WHITE,
-                                            shadertoy=self.glowball_shadertoy,
-                                            player_no=0)
-            self.set_bullet_vector(bullet_sprite, 13, self.player_sprite_list[0])
-            arcade.play_sound(self.laser_sound)
-
     def fire_circle(self, bullet_color, player_sprite, player_no):
         bullet_sprite = GlowBall(glowcolor=bullet_color,
                                  radius=5,
@@ -258,17 +195,6 @@ class AsteroidsView(BaseView):
         bullet_sprite.center_y = player_sprite.center_y
 
         self.bullet_list.append(bullet_sprite)
-
-    def on_key_release(self, symbol, modifiers):
-        """ Called whenever a key is released. """
-        if symbol == arcade.key.LEFT:
-            self.player_sprite_list[0].change_angle = 0
-        elif symbol == arcade.key.RIGHT:
-            self.player_sprite_list[0].change_angle = 0
-        elif symbol == arcade.key.UP:
-            self.player_sprite_list[0].thrust = 0
-        elif symbol == arcade.key.DOWN:
-            self.player_sprite_list[0].thrust = 0
 
     def split_asteroid(self, asteroid: AsteroidSprite):
         """ Split an asteroid into chunks. """
@@ -345,7 +271,7 @@ class AsteroidsView(BaseView):
         """ Move everything """
 
         self.total_time += delta_time
-        if self.total_time > 5.5:
+        if self.total_time > self.time_on_screen:
 
             if not self.window.view_list:
                 self.window.create_views()

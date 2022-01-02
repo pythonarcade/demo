@@ -23,9 +23,8 @@ PLAYING_FIELD_HEIGHT = 1600
 
 class RayCasting(BaseView):
 
-    def __init__(self):
-        super().__init__()
-        self.total_time = 0.0
+    def __init__(self, time_on_screen):
+        super().__init__(time_on_screen)
 
         # The shader toy and 'channels' we'll be using
         self.shadertoy = None
@@ -151,7 +150,7 @@ class RayCasting(BaseView):
         self.player_sprite.center_x += 5
 
         self.total_time += delta_time
-        if self.total_time > 4.0:
+        if self.total_time > self.time_on_screen:
 
             if not self.window.view_list:
                 self.window.create_views()

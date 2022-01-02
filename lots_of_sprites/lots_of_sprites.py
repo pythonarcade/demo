@@ -84,8 +84,8 @@ class LotsOfSprites(BaseView):
     Main application class.
     """
 
-    def __init__(self):
-        super().__init__()
+    def __init__(self, time_on_screen):
+        super().__init__(time_on_screen)
 
         self.grid = None
         self.wall_list = None
@@ -201,7 +201,7 @@ class LotsOfSprites(BaseView):
 
     def on_update(self, delta_time):
         self.total_time += delta_time
-        if self.total_time > 3.0:
+        if self.total_time > self.time_on_screen:
 
             if not self.window.view_list:
                 self.window.create_views()

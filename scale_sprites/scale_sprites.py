@@ -7,9 +7,8 @@ SPRITE_SCALING = 1.0
 
 class ScaleSprites(BaseView):
 
-    def __init__(self):
-        super().__init__()
-        self.total_time = 0.0
+    def __init__(self, time_on_screen):
+        super().__init__(time_on_screen)
 
         self.sprite_list = arcade.SpriteList()
 
@@ -41,7 +40,7 @@ class ScaleSprites(BaseView):
     def on_update(self, delta_time):
         self.total_time += delta_time
         self.sprite_female.scale += 0.05
-        if self.total_time > 1.8:
+        if self.total_time > self.time_on_screen:
 
             if not self.window.view_list:
                 self.window.create_views()
