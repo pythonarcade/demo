@@ -19,6 +19,7 @@ Slides that are done
 * Compute Shader
 * View/Screen support
 * Lots of moving sprites
+* End screen with URL
 * Add music
 
 Slides to do
@@ -33,5 +34,3 @@ Other things to do
 ------------------
 
 * Improve layout of sprite examples
-* End screen with URL
-* Start screen saying all one big program

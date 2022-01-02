@@ -18,9 +18,9 @@ class BaseView(arcade.View):
 
     def draw_line_two(self, text, color=arcade.color.BLACK):
         x = self.window.width / 2
-        y_box = self.window.height * 2 / 3 - 80
+        y_box = self.window.height * 2 / 3 - 90
         y_text = y_box - 20
-        arcade.draw_rectangle_filled(x, y_box, self.window.width, 80,
+        arcade.draw_rectangle_filled(x, y_box, self.window.width, 95,
                                      color=arcade.color.ALMOND)
         arcade.draw_text(text, self.window.width / 2, y_text,
                          color, font_size=55, anchor_x="center", font_name="Cabin Sketch")
