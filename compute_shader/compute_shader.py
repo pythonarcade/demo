@@ -119,7 +119,7 @@ class ComputeShader(BaseView):
         # Swap what geometry we draw
         self.vao_1, self.vao_2 = self.vao_2, self.vao_1
 
-        self.draw_line_one("Compute Shader for GPU based computations")
+        self.draw_line_one("Compute shaders for GPU-based computations")
 
     def gen_galaxies_colliding(self):
         radius = 3.0

@@ -10,6 +10,21 @@ class DemoWindow(arcade.Window):
     def __init__(self):
         super().__init__(SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_TITLE)
         self.view_list = []
+        self.media_player = None
+        self.my_music = arcade.load_sound(":resources:music/funkyrobot.mp3")
+        arcade.enable_timings()
+
+    def start_music(self):
+        if not self.media_player:
+            # Play button has been hit, and we need to start playing from the beginning.
+            self.media_player = self.my_music.play()
+        elif not self.media_player.playing:
+            # Play button hit, and we need to un-pause our playing.
+            self.media_player.play()
+        elif self.media_player.playing:
+            # We are playing music, so pause.
+            self.media_player.pause()
+            self.media_player = self.my_music.play()
 
     def create_views(self):
         self.view_list = []
@@ -34,12 +49,20 @@ class DemoWindow(arcade.Window):
         view = LotsOfSprites(4.0)
         self.view_list.append(view)
 
+        from moving_sprites.moving_sprites import MovingSprites
+        view = MovingSprites(4.0)
+        self.view_list.append(view)
+
         from hit_box.hit_boxes import HitBoxes
         view = HitBoxes(3.0)
         self.view_list.append(view)
 
         from camera.camera_view import CameraView
         view = CameraView(3.0)
+        self.view_list.append(view)
+
+        from view_support.view_support import ViewSupport
+        view = ViewSupport(4.0)
         self.view_list.append(view)
 
         from tiled_map.tiled_map import TiledMap
@@ -67,6 +90,12 @@ class DemoWindow(arcade.Window):
         view = ComputeShader(6.0)
         self.view_list.append(view)
 
+        from end_slide.end_slide import EndSlide
+        view = EndSlide(2.0)
+        self.view_list.append(view)
+
+        self.start_music()
+
 
 def main():
     """ Main function """
@@ -75,6 +104,8 @@ def main():
     window = DemoWindow()
     window.center_window()
     window.create_views()
+
+
 
     cur_view = window.view_list.pop(0)
     window.show_view(cur_view)

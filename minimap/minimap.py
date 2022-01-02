@@ -21,7 +21,7 @@ SPRITE_SCALING = 0.5
 VIEWPORT_MARGIN = 220
 
 # How fast the camera pans to the player. 1.0 is instant.
-CAMERA_SPEED = 0.1
+CAMERA_SPEED = 1.0
 
 # How fast the character moves
 PLAYER_MOVEMENT_SPEED = 7

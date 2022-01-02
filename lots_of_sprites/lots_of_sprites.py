@@ -103,7 +103,7 @@ class LotsOfSprites(BaseView):
         self.setup()
 
     def setup(self):
-        self.wall_list = arcade.SpriteList(use_spatial_hash=True)
+        self.wall_list = arcade.SpriteList(use_spatial_hash=False)
         self.player_list = arcade.SpriteList()
 
         # Create cave system using a 2D grid
@@ -200,7 +200,6 @@ class LotsOfSprites(BaseView):
         self.draw_line_one("Draw LOTS of Sprites")
         if self.total_time > 1.7:
             self.draw_line_two("100,000+ stationary sprites")
-
 
     def on_update(self, delta_time):
         self.total_time += delta_time

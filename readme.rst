@@ -17,22 +17,21 @@ Slides that are done
 * Shaders for glow effects and explosions
 * Shaders for backgrounds
 * Compute Shader
+* View/Screen support
+* Lots of moving sprites
+* Add music
 
 Slides to do
 ------------
 
 * Fast collisions
-* Lots of moving sprites
 * GUI
 * Platformer Engine
 * Pymunk
-* View/Screen support
-* Add music
 
 Other things to do
 ------------------
 
 * Improve layout of sprite examples
-* 2nd/3rd line of text
 * End screen with URL
 * Start screen saying all one big program

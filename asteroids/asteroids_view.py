@@ -166,7 +166,7 @@ class AsteroidsView(BaseView):
                          font_size=35,
                          font_name="Arcade")
 
-        self.draw_line_one("Use Shaders for glow effects and explosions")
+        self.draw_line_one("Use shaders for glow effects and explosions")
 
     def fire_circle(self, bullet_color, player_sprite, player_no):
         bullet_sprite = GlowBall(glowcolor=bullet_color,

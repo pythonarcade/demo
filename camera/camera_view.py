@@ -19,7 +19,7 @@ SPRITE_SCALING = 0.5
 VIEWPORT_MARGIN = 220
 
 # How fast the camera pans to the player. 1.0 is instant.
-CAMERA_SPEED = 0.1
+CAMERA_SPEED = 1.0
 
 # How fast the character moves
 PLAYER_MOVEMENT_SPEED = 7
@@ -80,15 +80,15 @@ class CameraView(BaseView):
                     wall.center_y = y
                     self.wall_list.append(wall)
 
-        for i in range(BOMB_COUNT):
-            bomb = arcade.Sprite(":resources:images/tiles/bomb.png", 0.25)
-            placed = False
-            while not placed:
-                bomb.center_x = random.randrange(PLAYING_FIELD_WIDTH)
-                bomb.center_y = random.randrange(PLAYING_FIELD_HEIGHT)
-                if not arcade.check_for_collision_with_list(bomb, self.wall_list):
-                    placed = True
-            self.bomb_list.append(bomb)
+        # for i in range(BOMB_COUNT):
+        #     bomb = arcade.Sprite(":resources:images/tiles/bomb.png", 0.25)
+        #     placed = False
+        #     while not placed:
+        #         bomb.center_x = random.randrange(PLAYING_FIELD_WIDTH)
+        #         bomb.center_y = random.randrange(PLAYING_FIELD_HEIGHT)
+        #         if not arcade.check_for_collision_with_list(bomb, self.wall_list):
+        #             placed = True
+        #     self.bomb_list.append(bomb)
 
         self.physics_engine = arcade.PhysicsEngineSimple(self.player_sprite, self.wall_list)
 
