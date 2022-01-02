@@ -38,6 +38,10 @@ class DemoWindow(arcade.Window):
         view = HitBoxes(3.0)
         self.view_list.append(view)
 
+        from tiled_map.tiled_map import TiledMap
+        view = TiledMap(6.0)
+        self.view_list.append(view)
+
         from minimap.minimap import Minimap
         view = Minimap(5.0)
         self.view_list.append(view)
