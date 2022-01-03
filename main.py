@@ -57,6 +57,14 @@ class DemoWindow(arcade.Window):
         view = HitBoxes(3.0)
         self.view_list.append(view)
 
+        from collision_spatial.collision_spatial import CollisionSpatial
+        view = CollisionSpatial(6.5)
+        self.view_list.append(view)
+
+        from collision_gpu.collision_gpu import CollisionGPU
+        view = CollisionGPU(6.5)
+        self.view_list.append(view)
+
         from camera.camera_view import CameraView
         view = CameraView(3.0)
         self.view_list.append(view)
