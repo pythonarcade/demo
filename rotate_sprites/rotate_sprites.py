@@ -26,8 +26,6 @@ class RotateSprites(BaseView):
         self.sprite_female.center_y = 546
         self.sprite_list.append(self.sprite_female)
 
-        # arcade.load_font("fonts/TELONE-Regpersonal.otf")
-
     def on_show(self):
         arcade.set_background_color(arcade.color.BLUE_YONDER)
         self.total_time = 0.0

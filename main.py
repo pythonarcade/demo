@@ -73,12 +73,20 @@ class DemoWindow(arcade.Window):
         view = ViewSupport(4.0)
         self.view_list.append(view)
 
+        from gui.gui_view import GuiView
+        view = GuiView(4.0)
+        self.view_list.append(view)
+
         from tiled_map.tiled_map import TiledMap
         view = TiledMap(6.0)
         self.view_list.append(view)
 
         from platformer_engine.platformer_engine import PlatformerEngine
         view = PlatformerEngine(6.0)
+        self.view_list.append(view)
+
+        from pymunk_view.pymunk_view import PymunkView
+        view = PymunkView(6.0)
         self.view_list.append(view)
 
         from minimap.minimap import Minimap
@@ -116,8 +124,6 @@ def main():
     window = DemoWindow()
     window.center_window()
     window.create_views()
-
-
 
     cur_view = window.view_list.pop(0)
     window.show_view(cur_view)
