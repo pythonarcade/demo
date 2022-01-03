@@ -13,6 +13,7 @@ Slides that are done
 * Fast collisions
 * Scrolling Screen
 * Tiled map support
+* Platformer Engine
 * Mini-Map
 * Ray casting
 * Shaders for glow effects and explosions
@@ -27,7 +28,6 @@ Slides to do
 ------------
 
 * GUI
-* Platformer Engine
 * Pymunk
 
 Other things to do
