@@ -111,7 +111,7 @@ class DemoWindow(arcade.Window):
         self.view_list.append(view)
 
         from end_slide.end_slide import EndSlide
-        view = EndSlide(2.0)
+        view = EndSlide(10.0)
         self.view_list.append(view)
 
         self.start_music()

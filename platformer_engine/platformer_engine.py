@@ -49,6 +49,7 @@ class PlayerCharacter(arcade.Sprite):
         # Used for flipping between image sequences
         self.cur_texture = 0
         self.scale = CHARACTER_SCALING
+        self.x_odometer = 0
 
         # Track our state
         self.jumping = False
@@ -58,7 +59,7 @@ class PlayerCharacter(arcade.Sprite):
         # --- Load Textures ---
 
         # Images from Kenney.nl's Asset Pack 3
-        main_path = ":resources:images/animated_characters/male_person/malePerson"
+        main_path = ":resources:images/animated_characters/female_adventurer/femaleAdventurer"
 
         # Load textures for idle standing
         self.idle_texture_pair = load_texture_pair(f"{main_path}_idle.png")
@@ -121,12 +122,15 @@ class PlayerCharacter(arcade.Sprite):
             return
 
         # Walking animation
-        self.cur_texture += 1
-        if self.cur_texture > 7:
-            self.cur_texture = 0
-        self.texture = self.walk_textures[self.cur_texture][
-            self.character_face_direction
-        ]
+        x_change = self.center_x - self.x_odometer
+        if x_change > 7:
+            self.cur_texture += 1
+            if self.cur_texture > 7:
+                self.cur_texture = 0
+            self.texture = self.walk_textures[self.cur_texture][
+                self.character_face_direction
+            ]
+            self.x_odometer = self.center_x
 
 
 class PlatformerEngine(BaseView):
