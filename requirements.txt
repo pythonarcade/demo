@@ -1,1 +1,1 @@
-arcade
+arcade==2.6.9.dev1
