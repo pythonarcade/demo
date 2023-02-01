@@ -157,8 +157,8 @@ class CameraView(BaseView):
 
         # Create the cameras. One for the GUI, one for the sprites.
         # We scroll the 'sprite world' but not the GUI.
-        self.camera_sprites = arcade.Camera(self.window.width, self.window.height)
-        self.camera_gui = arcade.Camera(self.window.width, self.window.height)
+        self.camera_sprites = arcade.Camera()
+        self.camera_gui = arcade.Camera()
 
         self.explosion_sound = arcade.load_sound(":resources:sounds/explosion1.wav")
 

@@ -73,9 +73,9 @@ class DemoWindow(arcade.Window):
         view = ViewSupport(4.0)
         self.view_list.append(view)
 
-        from gui.gui_view import GuiView
-        view = GuiView(4.0)
-        self.view_list.append(view)
+        # from gui.gui_view import GuiView
+        # view = GuiView(4.0)
+        # self.view_list.append(view)
 
         from tiled_map.tiled_map import TiledMap
         view = TiledMap(6.0)
@@ -106,9 +106,9 @@ class DemoWindow(arcade.Window):
         view = ShaderBackground(3.0)
         self.view_list.append(view)
 
-        from compute_shader.compute_shader import ComputeShader
-        view = ComputeShader(6.0)
-        self.view_list.append(view)
+        # from compute_shader.compute_shader import ComputeShader
+        # view = ComputeShader(6.0)
+        # self.view_list.append(view)
 
         from end_slide.end_slide import EndSlide
         view = EndSlide(10.0)

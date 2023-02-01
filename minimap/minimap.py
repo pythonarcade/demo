@@ -170,8 +170,8 @@ class Minimap(BaseView):
         self.physics_engine = None
 
         # Camera for sprites, and one for our GUI
-        self.camera_sprites = arcade.Camera(self.window.width, self.window.height)
-        self.camera_gui = arcade.Camera(self.window.width, self.window.height)
+        self.camera_sprites = arcade.Camera()
+        self.camera_gui = arcade.Camera()
 
         self.setup()
 

@@ -173,8 +173,8 @@ class PlatformerEngine(BaseView):
         """Set up the game here. Call this function to restart the game."""
 
         # Setup the Cameras
-        self.camera_sprites = arcade.Camera(self.window.width, self.window.height)
-        self.camera_gui = arcade.Camera(self.window.width, self.window.height)
+        self.camera_sprites = arcade.Camera()
+        self.camera_gui = arcade.Camera()
 
         # Name of map file to load
         map_name = "maps/map1.json"
