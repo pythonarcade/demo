@@ -33,6 +33,10 @@ class DemoWindow(arcade.Window):
         view = StartView(3.0)
         self.view_list.append(view)
 
+        from spatial_hash.spatial_hash import SpatialHashDemo
+        view = SpatialHashDemo(4.0)
+        self.view_list.append(view)
+
         from draw_sprites.draw_sprites import DrawSprites
         view = DrawSprites(3.0)
         self.view_list.append(view)
