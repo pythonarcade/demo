@@ -1,4 +1,5 @@
 import arcade
+from arcade import hitbox
 from base_view import BaseView
 
 
@@ -39,19 +40,21 @@ class HitBoxes(BaseView):
         self.sprite_list.append(self.sprite_female)
 
         img = ":resources:images/animated_characters/female_person/femalePerson_idle.png"
-        self.sprite_female = arcade.Sprite(img, 1, hit_box_algorithm="Detailed")
+        texture = arcade.load_texture(img, hit_box_algorithm=hitbox.algo_detailed)
+        self.sprite_female = arcade.Sprite(texture, scale=1)
         self.sprite_female.center_x = 1000
         self.sprite_female.center_y = 546
         self.sprite_list.append(self.sprite_female)
 
         img = ":resources:images/animated_characters/female_adventurer/femaleAdventurer_idle.png"
-        self.sprite_female = arcade.Sprite(img, 1, hit_box_algorithm="Detailed")
-        self.sprite_female.center_x = 1150
+        texture = arcade.load_texture(img, hit_box_algorithm=hitbox.algo_detailed)
+        self.sprite_female = arcade.Sprite(texture, scale=1)
         self.sprite_female.center_y = 546
         self.sprite_list.append(self.sprite_female)
 
         img = ":resources:images/tiles/grass_sprout.png"
-        self.sprite_female = arcade.Sprite(img, 1, hit_box_algorithm="Detailed")
+        texture = arcade.load_texture(img, hit_box_algorithm=hitbox.algo_detailed)
+        self.sprite_female = arcade.Sprite(texture, scale=1)
         self.sprite_female.center_x = 1200
         self.sprite_female.center_y = 546
         self.sprite_list.append(self.sprite_female)

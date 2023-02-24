@@ -209,7 +209,7 @@ class Minimap(BaseView):
         self.minimap_texture = arcade.Texture.create_empty(str(uuid4()), size)
         self.minimap_sprite = arcade.Sprite(center_x=(MINIMAP_WIDTH + MAP_MARGIN) / 2,
                                             center_y=(MINIMAP_HEIGHT + MAP_MARGIN) / 2,
-                                            texture=self.minimap_texture)
+                                            path_or_texture=self.minimap_texture)
 
         self.minimap_sprite_list = arcade.SpriteList()
         self.minimap_sprite_list.append(self.minimap_sprite)

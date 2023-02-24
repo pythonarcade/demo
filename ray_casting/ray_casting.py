@@ -33,6 +33,7 @@ def load_texture_pair(filename):
         arcade.load_texture(filename, flipped_horizontally=True),
     ]
 
+
 class PlayerCharacter(arcade.Sprite):
     """Player Sprite"""
 
