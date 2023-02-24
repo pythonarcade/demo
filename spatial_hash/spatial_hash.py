@@ -42,6 +42,8 @@ class SpatialHashDemo(BaseView):
                     color=arcade.color_from_hex_string("#4D455D"),
                 )
 
+        self.draw_line_one("Spatial Hashing for fast collision detection")
+
     def on_update(self, delta_time):
         """ Movement and game logic """
         """ Handle Mouse Motion """

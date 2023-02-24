@@ -31,15 +31,6 @@ PLAYING_FIELD_HEIGHT = 1600
 RIGHT_FACING = 0
 LEFT_FACING = 1
 
-def load_texture_pair(filename):
-    """
-    Load a texture pair, with the second being a mirror image.
-    """
-    texture = arcade.load_texture(filename)
-    return [
-        texture,
-        texture.flip_vertically(),
-    ]
 
 class PlayerCharacter(arcade.Sprite):
     """Player Sprite"""
@@ -68,14 +59,14 @@ class PlayerCharacter(arcade.Sprite):
         main_path = ":resources:images/animated_characters/male_person/malePerson"
 
         # Load textures for idle standing
-        self.idle_texture_pair = load_texture_pair(f"{main_path}_idle.png")
-        self.jump_texture_pair = load_texture_pair(f"{main_path}_jump.png")
-        self.fall_texture_pair = load_texture_pair(f"{main_path}_fall.png")
+        self.idle_texture_pair = arcade.load_texture_pair(f"{main_path}_idle.png")
+        self.jump_texture_pair = arcade.load_texture_pair(f"{main_path}_jump.png")
+        self.fall_texture_pair = arcade.load_texture_pair(f"{main_path}_fall.png")
 
         # Load textures for walking
         self.walk_textures = []
         for i in range(8):
-            texture = load_texture_pair(f"{main_path}_walk{i}.png")
+            texture = arcade.load_texture_pair(f"{main_path}_walk{i}.png")
             self.walk_textures.append(texture)
 
         # Load textures for climbing
