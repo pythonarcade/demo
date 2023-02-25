@@ -11,13 +11,15 @@ class DemoWindow(arcade.Window):
         super().__init__(SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_TITLE)
         self.view_list = []
         self.media_player = None
-        self.my_music = arcade.load_sound(":resources:music/funkyrobot.mp3")
+        self.my_music = arcade.load_sound("music/into-battle-15601.mp3")
         arcade.enable_timings()
 
     def start_music(self):
+        # return
         if not self.media_player:
             # Play button has been hit, and we need to start playing from the beginning.
             self.media_player = self.my_music.play()
+            self.media_player.volume = 0.1
         elif not self.media_player.playing:
             # Play button hit, and we need to un-pause our playing.
             self.media_player.play()
@@ -30,11 +32,7 @@ class DemoWindow(arcade.Window):
         self.view_list = []
 
         from start.start_view import StartView
-        view = StartView(3.0)
-        self.view_list.append(view)
-
-        from spatial_hash.spatial_hash import SpatialHashDemo
-        view = SpatialHashDemo(4.0)
+        view = StartView(3.5)
         self.view_list.append(view)
 
         from draw_sprites.draw_sprites import DrawSprites
@@ -59,6 +57,10 @@ class DemoWindow(arcade.Window):
 
         from hit_box.hit_boxes import HitBoxes
         view = HitBoxes(3.0)
+        self.view_list.append(view)
+
+        from spatial_hash.spatial_hash import SpatialHashDemo
+        view = SpatialHashDemo(4.0)
         self.view_list.append(view)
 
         from collision_spatial.collision_spatial import CollisionSpatial
@@ -97,6 +99,10 @@ class DemoWindow(arcade.Window):
         view = Minimap(5.0)
         self.view_list.append(view)
 
+        from parallax.parallax import ParallaxView
+        view = ParallaxView(4.0)
+        self.view_list.append(view)
+
         from ray_casting.ray_casting import RayCasting
         view = RayCasting(4.0)
         self.view_list.append(view)
@@ -106,13 +112,17 @@ class DemoWindow(arcade.Window):
         view.start_new_game(1)
         self.view_list.append(view)
 
+        from normal_mapping.normal_mapping import NormalMapping
+        view = NormalMapping(5.0)
+        self.view_list.append(view)
+
         from shader_background.shader_background import ShaderBackground
         view = ShaderBackground(3.0)
         self.view_list.append(view)
 
-        # from compute_shader.compute_shader import ComputeShader
-        # view = ComputeShader(6.0)
-        # self.view_list.append(view)
+        from compute_shader.compute_shader import ComputeShader
+        view = ComputeShader(6.0)
+        self.view_list.append(view)
 
         from end_slide.end_slide import EndSlide
         view = EndSlide(10.0)

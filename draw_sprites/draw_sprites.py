@@ -38,6 +38,7 @@ class DrawSprites(BaseView):
         self.sprite_female.center_y = 546
         self.sprite_list.append(self.sprite_female)
 
+        self.camera = arcade.SimpleCamera()
         # arcade.load_font("fonts/TELONE-Regpersonal.otf")
 
     def on_show(self):
@@ -46,7 +47,8 @@ class DrawSprites(BaseView):
 
     def on_draw(self):
         """ Draw this view """
-        arcade.start_render()
+        self.clear()
+        self.camera.use()
         self.sprite_list.draw()
         self.draw_line_one("Draw Sprites")
 
