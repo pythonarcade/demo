@@ -124,8 +124,7 @@ class DemoWindow(arcade.Window):
         view = ComputeShader(6.0)
         self.view_list.append(view)
 
-        from end_slide.end_slide import EndSlide
-        view = EndSlide(10.0)
+        view = ShaderBackground(10.0, True)
         self.view_list.append(view)
 
         self.start_music()
