@@ -5,7 +5,7 @@ from base_view import BaseView
 COIN_COUNT = 5000
 RECT_WIDTH = 100
 RECT_HEIGHT = 100
-CHANGE_X = 10
+CHANGE_X = 8
 CHANGE_Y = 4
 
 

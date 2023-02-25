@@ -19,8 +19,8 @@ class GlowLine(Bullet):
         self.shadertoy.program['lineColor'] = arcade.get_four_float_color(self.glowcolor)
         self.shadertoy.program['angle'] = math.radians(self.angle)
 
-        distance = arcade.get_distance(self.center_x, self.center_y,
-                                       self.player.center_x, self.player.center_y)
+        distance = arcade.math.get_distance(self.center_x, self.center_y,
+                                            self.player.center_x, self.player.center_y)
         length = min(distance, 120)
         self.shadertoy.program['laserLength'] = length
         self.shadertoy.render()
