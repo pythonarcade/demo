@@ -1,4 +1,3 @@
-import random
 import arcade
 from arcade.experimental import Shadertoy
 
@@ -8,7 +7,7 @@ from base_view import BaseView
 class ShaderBackground(BaseView):
     """ Main application class. """
 
-    def __init__(self, time_on_screen):
+    def __init__(self, time_on_screen, end_slide=False):
         super().__init__(time_on_screen)
 
         # Variables that will hold sprite lists
@@ -17,6 +16,8 @@ class ShaderBackground(BaseView):
         self.player_bullet_list = None
         self.enemy_bullet_list = None
         self.shield_list = None
+
+        self.end_slide = end_slide
 
         # Textures for the enemy
         self.enemy_textures = None
@@ -29,11 +30,19 @@ class ShaderBackground(BaseView):
         size = self.window.width, self.window.height
         self.shadertoy = Shadertoy(size, shader_sourcecode)
 
+        self.logo = arcade.load_texture("shader_background/logo-192x192.png")
+
         # arcade.configure_logging()
 
     def draw(self):
         arcade.start_render()
         self.shadertoy.render(time=self.total_time)
+        if self.end_slide:
+            self.draw_line_one("The Python Arcade Library")
+            self.logo.draw_scaled(center_x=self.window.width * 4/5 - 35, center_y=self.window.height * 2 / 3, scale=.45)
+            if self.total_time > 1.5:
+                self.draw_line_two("https://arcade.academy")
+            return
         self.draw_line_one("Use shaders for smooth-high performance backgrounds")
 
     def on_draw(self):
@@ -53,6 +62,10 @@ class ShaderBackground(BaseView):
         pass
 
     def on_update(self, delta_time):
+        if self.end_slide:
+            if delta_time > 1.5:
+                return
+
         self.total_time += delta_time
         if self.total_time > self.time_on_screen:
 

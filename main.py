@@ -182,6 +182,11 @@ class DemoWindow(arcade.Window):
             self.loading_view.line_two_text = "Compute shader"
 
         elif count == 23:
+            from shader_background.shader_background import ShaderBackground
+            view = ShaderBackground(10.0, True)
+            self.view_list.append(view)
+
+        elif count == 24:
             from end_slide.end_slide import EndSlide
             view = EndSlide(10.0)
             self.view_list.append(view)
