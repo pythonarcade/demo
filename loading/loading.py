@@ -1,33 +1,29 @@
 import arcade
 from base_view import BaseView
-from arcade.experimental import Shadertoy
 
 
-class StartView(BaseView):
+class LoadingView(BaseView):
     """ View to show instructions """
 
     def __init__(self, time_on_screen):
         super().__init__(time_on_screen)
 
-        file_name = "start/neon_parallax.glsl"
-        file = open(file_name)
-        shader_sourcecode = file.read()
-        size = self.window.width, self.window.height
-        self.shadertoy = Shadertoy(size, shader_sourcecode)
+        self.line_two_text = ""
 
     def on_show(self):
         arcade.set_background_color(arcade.color.BLACK)
 
     def on_draw(self):
+        arcade.set_background_color(arcade.color.BLACK)
         arcade.start_render()
-        self.shadertoy.render(time=self.total_time)
-        self.draw_line_one("The Python Arcade Library")
-        if self.total_time > 2.5:
-            self.draw_line_two("What can you do with it?")
-        else:
-            self.draw_line_two("")
+        self.draw_line_one("Loading...")
+        self.draw_line_two(self.line_two_text)
 
     def on_update(self, delta_time):
+
+        # High delta time probably means we just started
+        if delta_time > 1.5:
+            return
 
         self.total_time += delta_time
         if self.total_time > self.time_on_screen:

@@ -49,7 +49,7 @@ class HitBoxes(BaseView):
         img = ":resources:images/animated_characters/female_adventurer/femaleAdventurer_idle.png"
         texture = arcade.load_texture(img, hit_box_algorithm=hitbox.algo_detailed)
         self.sprite_female = arcade.Sprite(texture, scale=1)
-        self.sprite_female.center_y = 550
+        self.sprite_female.center_x = 550
         self.sprite_female.center_y = 546
         self.sprite_list.append(self.sprite_female)
 
