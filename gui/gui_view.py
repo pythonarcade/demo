@@ -79,7 +79,7 @@ class GuiView(BaseView):
         if self.total_time > self.time_on_screen:
 
             if not self.window.view_list:
-                self.window.create_views(13)
+                self.window.create_views()
 
             new_view = self.window.view_list.pop(0)
             self.window.show_view(new_view)
