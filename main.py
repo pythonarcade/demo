@@ -118,9 +118,9 @@ class DemoWindow(arcade.Window):
 
         elif count == 12 and not prototype:
             self.loading_view.line_two_text = "Tiled map"
-            # from gui.gui_view import GuiView
-            # view = GuiView(4.0)
-            # self.view_list.append(view)
+            from gui.gui_view import GuiView
+            view = GuiView(5.0)
+            self.view_list.append(view)
 
         elif count == 13 and not prototype:
             from tiled_map.tiled_map import TiledMap
